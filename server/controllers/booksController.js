@@ -10,13 +10,13 @@ const dynamicQuery = (reqQuery) => {
     const toYear = parseInt(reqQuery.toYear);
 
     if (!isNaN(fromYear) || !isNaN(toYear)) {
-        filter.year = {};
-        if (!isNaN(fromYear)) filter.year.$gte = fromYear;
-        if (!isNaN(toYear)) filter.year.$lte = toYear;
+        filter.publishDate = {};
+        if (!isNaN(fromYear)) filter.publishDate.$gte = `${fromYear}-01-01`;
+        if (!isNaN(toYear)) filter.publishDate.$lte = `${toYear}-12-31`;
     }
 
     if (reqQuery.inStock === 'true') {
-        filter.copies = { $gt: 0 };
+        filter.amountOfCopies = { $gt: 0 };
     }
 
     if (reqQuery.sortRating === 'asc') {
@@ -24,13 +24,15 @@ const dynamicQuery = (reqQuery) => {
     } else if (reqQuery.sortRating === 'desc') {
         sort.rating = -1;
     }
+
+    return { filter, sort };
 };
 
 export const getAllBooks = async (req, res) => {
     const client = await MongoClient.connect(DB_CONNECTION_STRING);
     try {
         const settings = dynamicQuery(req.query);
-        const data = await client.db('back_end_atsiskaitymas').collection('books').find(settings.filter).sort(settings.filter).toArray();
+        const data = await client.db('back_end_atsiskaitymas').collection('books').find(settings.filter).sort(settings.sort).toArray();
         res.send(data);
     } catch (err) {
         console.error(err);
@@ -44,7 +46,7 @@ export const getBookById = async (req, res) => {
     const client = await MongoClient.connect(DB_CONNECTION_STRING);
     try {
         let filter = {
-            _id: ObjectId.createFromHexString(req.params.id)
+            _id: req.params.id
         };
         const data = await client.db('back_end_atsiskaitymas').collection('books').findOne(filter);
         if (Object.is(data, null)) {
