@@ -2,10 +2,12 @@ import e from "express";
 import cors from 'cors';
 import 'dotenv/config';
 
+import booksRoutes from './routes/booksRoutes.js'
+
 const PORT = process.env.PORT || 5501;
 
 const corsOptions = {
-    origin: "htpp://localhost:5000"
+    origin: "http://localhost:5173"
 };
 
 const app = e();

@@ -6,19 +6,15 @@ import Books from "./pages/Books";
 import SpecificBookPage from "./pages/SpecificBookPage";
 
 const App = () => {
-
   return (
-    <>
-      <Routes>
-        <Route path="" element={<MainOutlet />}>
-          <Route index element={<Home />} />
-          <Route path='/books' element={<Books />}>
-            <Route path=":id" element={<SpecificBookPage />} />
-          </Route>
-        </Route>
-      </Routes>
-    </>
-  )
-}
+    <Routes>
+      <Route path="" element={<MainOutlet />}>
+        <Route index element={<Home />} />
+        <Route path="books" element={<Books />} />
+        <Route path="books/:id" element={<SpecificBookPage />} />
+      </Route>
+    </Routes>
+  );
+};
 
 export default App;
