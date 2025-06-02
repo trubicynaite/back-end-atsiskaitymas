@@ -6,10 +6,8 @@ const StyledFooter = styled.footer`
     background-color: #4d2733;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-
-    gap: 50px;
 
     >p, a {
         color: #eda5bd;

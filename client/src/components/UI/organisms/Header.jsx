@@ -30,7 +30,7 @@ const StyledHeader = styled.header`
       list-style-type: none;
 
       display: flex;
-      gap: 10px;
+      gap: 40px;
 
       > li{
 
