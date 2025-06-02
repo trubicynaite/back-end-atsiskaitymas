@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
 const StyledFooter = styled.footer`
-    height: 120px;
+    height: 140px;
     background-color: #4d2733;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    gap: 20px;
+    gap: 50px;
 
     >p, a {
         color: #eda5bd;
@@ -23,14 +23,14 @@ const StyledFooter = styled.footer`
             text-decoration: underline;
         }
     }
-.salygos {
+    .salygos {
     display: flex;
         gap: 20px;
         flex-wrap: wrap;
         justify-content: center;
 }
 
-.social {
+    .social {
         display: flex;
         gap: 15px;
         margin-top: 8px;
@@ -51,7 +51,7 @@ const StyledFooter = styled.footer`
 const Footer = () => {
     return (
         <StyledFooter>
-            <p>&copy; 2025 Back-End Atsiskaitymas. All rights reserved.</p>
+            <p>&copy; 2025 Back-End Atsiskaitymas. </p>
             <div className='salygos'>
                 <a href="/privacy-policy">Privacy Policy</a>
                 <a href="/terms-of-service">Terms of Service</a>
