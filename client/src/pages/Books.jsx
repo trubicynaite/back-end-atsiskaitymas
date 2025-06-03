@@ -12,12 +12,50 @@ const StyledSection = styled.section`
         font-size: 40px;
     }
 
-    .books {
+    >div.books {
         margin-top: 40px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
+    }
+
+    >form{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 10px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        max-width: 100%;
+
+        >label {
+        display: flex;
+        flex-direction: column;
+
+            >input, select {
+                margin-top: 3px;
+                padding: 3px;
+                border-radius: 8px;
+                border: 1px solid palevioletred;
+            }
+        }
+
+    >button[type="submit"] {
+        background-color: palevioletred;
+        color: white;
+        height: 50px;
+        padding: 3px 10px;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: #d45d7d;
+            }
+        }
     }
 `;
 
