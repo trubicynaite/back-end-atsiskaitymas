@@ -12,28 +12,29 @@ const StyledFooter = styled.footer`
     >p, a {
         color: #eda5bd;
         margin: 0;
+        text-decoration: none;
     }
 
-    >a {
+    >div.salygos {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
         text-decoration: none;
-        margin: 0 10px;
+
+        >a {
         &:hover {
             text-decoration: underline;
         }
     }
-    .salygos {
-    display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-}
+    }
 
-    .social {
+    >div.social {
         display: flex;
         gap: 15px;
         margin-top: 8px;
 
-        a {
+        >a {
             color: #eda5bd;
             font-size: 1.4rem;
 
@@ -42,7 +43,8 @@ const StyledFooter = styled.footer`
             }
         }
     }
-    .info{
+
+    >div.info{
         color: #eda5bd;
     }
 `

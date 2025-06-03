@@ -15,6 +15,7 @@ const StyledHeader = styled.header`
         width: 60px;
         overflow: hidden;
         border-radius:10px;
+
     >img{
        width: 120%;
        height: 120%;
@@ -22,9 +23,13 @@ const StyledHeader = styled.header`
        transform: translate(-8%, -8%);
     }
   }
-  > nav{
+  >h1{
+    font-size: 50px;
+    color: #eda5bd;
+  }
 
-    > ul{
+  >nav{
+    >ul{
       margin: 0;
       padding: 0;
       list-style-type: none;
@@ -32,9 +37,8 @@ const StyledHeader = styled.header`
       display: flex;
       gap: 40px;
 
-      > li{
-
-        > a{
+      >li{
+        >a{
           text-decoration: none;
           color: #eda5bd;
           font-size: 40px;
@@ -57,6 +61,7 @@ const Header = () => {
             <div>
                 <img src="https://ih1.redbubble.net/image.5220812152.9756/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="https://ih1.redbubble.net/image.5220812152.9756/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" />
             </div>
+            <h1>BookLover</h1>
             <nav>
                 <ul>
                     <li><NavLink to="/">Home</NavLink></li>
