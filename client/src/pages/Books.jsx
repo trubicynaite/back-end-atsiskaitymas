@@ -126,13 +126,16 @@ const Books = () => {
             </form>
 
             <div className="books">
-                {books.length === 0 ? (
-                    <p>Loading books...</p>
-                ) : (
-                    books.map(book => (
-                        <BookCard key={book._id} book={book} />
-                    ))
-                )}
+                {
+                    books.length > 0 ?
+                        (
+                            books.map(book => (
+                                <BookCard key={book._id} book={book} />
+                            ))
+                        ) : (
+                            <p>Loading books...</p>
+                        )
+                }
             </div>
         </StyledSection>
     );
