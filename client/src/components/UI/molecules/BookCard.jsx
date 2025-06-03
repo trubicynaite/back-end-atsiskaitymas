@@ -19,7 +19,6 @@ const StyledCard = styled.div`
 
         >h3 {
             margin: 0 0 10px;
-            font-size: 1.1rem;
             color: palevioletred;
         }
 
@@ -30,32 +29,31 @@ const StyledCard = styled.div`
 `;
 
 const ReadMoreButton = styled(Link)`
-  margin-top: 10px;
   padding: 6px 12px;
-  background-color: palevioletred;
-  color: white;
+  background-color: pink;
+  color: #000000;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 14px;
   text-align: center;
 
-  &:hover {
-    background-color: #d45d7d;
-  }
+    &:hover {
+        background-color: #d45d7d;
+    }
 `;
 
 const BookCard = ({ book }) => {
     return (
-        <StyledCard inStock={book.amountOfCopies > 0}>
+        <StyledCard>
             <img src={book.imageUrl} alt='cover' />
             <div className="card-content">
                 <h3>{book.title}</h3>
                 <p><strong>Author:</strong> {book.author}</p>
+                <p><strong>Description:</strong> {book.description.slice(0, 100)}...</p>
                 <p><strong>Rating:</strong> {book.rating}</p>
                 <p><strong>Publish Date:</strong> {book.publishDate}</p>
-                <p><strong>Genres:</strong> {book.genres?.join(', ')}</p>
+                <p><strong>Genres:</strong> {book.genres.join(', ')}</p>
                 <p><strong>In stock:</strong> {book.amountOfCopies > 0 ? 'Yes' : 'No'}</p>
-                <p>{book.description.slice(0, 70)}...</p>
                 <ReadMoreButton to={`/books/${book._id}`}>Read More</ReadMoreButton>
             </div>
         </StyledCard>
